@@ -12,38 +12,6 @@ import com.pbhogte.utils.ListNode;
  */
 public class MergeKLists {
 	
-	public static void main (String[] args) {
-		MergeKLists sol = new MergeKLists();
-		ListNode list1 = new ListNode(1);
-		ListNode list11 = new ListNode(3);
-		list1.next = list11;
-		
-		ListNode list2 = new ListNode(2);
-		ListNode list21 = new ListNode(4);
-		list2.next = list21;
-		
-		ListNode[] lists = new ListNode[] {list1, list2};
-		ListNode result = sol.mergeKLists(lists);
-		System.out.println(result.val);
-		
-		ListNode list3 = new ListNode(1);
-		ListNode list31 = new ListNode(2);
-		list3.next = list31;
-		ListNode list32 = new ListNode(3);
-		list31.next = list32;
-		ListNode list33 = new ListNode(4);
-		list32.next = list33;
-		System.out.println(list3.val);
-		
-		list3.print();
-		result.print();
-		
-		if (! list3.equals(result)) {
-			System.out.println("Lists did not merge correctly");
-		}
-		
-	}
-	
     public ListNode mergeKLists(ListNode[] lists) {
     	
     	if (lists.length == 0) {
