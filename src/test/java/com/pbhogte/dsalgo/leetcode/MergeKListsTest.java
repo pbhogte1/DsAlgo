@@ -46,7 +46,7 @@ public class MergeKListsTest {
 		ListNode list11 = new ListNode(3);
 		list1.next = list11;
 		
-		ListNode list2 = null;
+		ListNode list2 = null; // Test with second null list
 		
 		ListNode[] lists = new ListNode[] {list1, list2};
 		ListNode result = sol.mergeKLists(lists);
@@ -65,6 +65,7 @@ public class MergeKListsTest {
 	
 	@Test
 	public void test3() {
+		// Test with both null lists
 		ListNode list1 = null;
 		ListNode list2 = null;
 		ListNode[] lists = new ListNode[] {list1, list2};
@@ -76,8 +77,7 @@ public class MergeKListsTest {
 	
 	@Test(expected = RuntimeException.class)
 	public void test4() {
-		ListNode list1 = null;
-		ListNode list2 = null;
+		// Test with null array
 		ListNode[] lists = {};
 		sol.mergeKLists(lists);
 	}
