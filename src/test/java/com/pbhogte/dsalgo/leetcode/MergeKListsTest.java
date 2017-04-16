@@ -61,6 +61,25 @@ public class MergeKListsTest {
 		if (! result.equals(list3)) {
 			fail("Lists did not merge correctly");
 		}
-		
 	}
+	
+	@Test
+	public void test3() {
+		ListNode list1 = null;
+		ListNode list2 = null;
+		ListNode[] lists = new ListNode[] {list1, list2};
+		ListNode result = sol.mergeKLists(lists);
+		if ( result != null ) {
+			fail("null result was expected");
+		}
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void test4() {
+		ListNode list1 = null;
+		ListNode list2 = null;
+		ListNode[] lists = {};
+		sol.mergeKLists(lists);
+	}
+	
 }

@@ -15,7 +15,7 @@ public class MergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
     	
     	if (lists.length == 0) {
-    		return null;
+    		throw new RuntimeException("No input lists for merging");
     	}
     	
         PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>(){
