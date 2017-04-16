@@ -32,14 +32,19 @@ public class HeapSort {
 		// Start sorting in descending order from the back of the array
 		while (size >= 0) {
 			swap(0, size); // move root to the end
+			ArrayUtil.print(a);
 			size--;
 			siftDown(0, size); // operate on the remaining heap
+			ArrayUtil.print(a);
 		}
 		ArrayUtil.print(a);
 		ArrayUtil.printHeap(a);
 		return Arrays.copyOf(a, a.length);
 	}
 	
+	/** 
+	 * Build the heap order - parent is greater than children
+	 */
 	public void heapify() {
 		int start = parent(size);
 		while (start >= 0) {
@@ -49,9 +54,9 @@ public class HeapSort {
 	}
 	
 	/**
-	 * 
-	 * @param start - parent index
-	 * @param end - child index
+	 * Repair the heap - build the heap order iteratively
+	 * @param start - start parent index
+	 * @param end - end child index
 	 */
 	public void siftDown(int start, int end) {
 		System.out.println("start is " + start + " and end is " + end);
