@@ -60,7 +60,7 @@ public class KthLargest {
                 j--;
             }
         }
-        // call quickSort() method recursively
+        // call selectiveSort() method recursively
         System.out.println("lowerindex is " + lowerIndex + ", higherindex is " + higherIndex 
         		+ " , i is " + i + " , j is " + j);
         ArrayUtil.print(array);

@@ -4,6 +4,14 @@ import java.util.Arrays;
 
 import com.pbhogte.utils.ArrayUtil;
 
+/** 
+ * The heapify() operation is run once, and is O(n) in performance. 
+ * The siftDown() function is O(log(n)), and is called n times. 
+ * Therefore, the performance of this algorithm is O(n + n * log(n)) which evaluates to O(n log n).
+ * 
+ * @author pbhogte
+ *
+ */
 public class HeapSort {
 
 	int[] a;
@@ -17,16 +25,18 @@ public class HeapSort {
 		size = a.length - 1;
 		
 		ArrayUtil.print(a);
-		heapify();
+		heapify(); // at the end of heapify, each parent will be greater than its children
 		ArrayUtil.print(a);
 		ArrayUtil.printHeap(a);
 		
+		// Start sorting in descending order from the back of the array
 		while (size >= 0) {
-			swap(0, size);
+			swap(0, size); // move root to the end
 			size--;
-			siftDown(0, size);
+			siftDown(0, size); // operate on the remaining heap
 		}
 		ArrayUtil.print(a);
+		ArrayUtil.printHeap(a);
 		return Arrays.copyOf(a, a.length);
 	}
 	
@@ -38,32 +48,37 @@ public class HeapSort {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param start - parent index
+	 * @param end - child index
+	 */
 	public void siftDown(int start, int end) {
-		//System.out.println("start is " + start + " and end is " + end);
+		System.out.println("start is " + start + " and end is " + end);
 		int root = start;
 		while (leftChild(root) <= end) {
-			//System.out.println("root is " + root + " and end is " + end);
+			System.out.println("root is " + root + " and end is " + end);
 			int leftChild = leftChild(root);
 			int temp = root;
-			if (a[temp] < a[leftChild]) {
-				temp = leftChild;
+			if (a[temp] < a[leftChild]) { // left-child is greater than root
+				temp = leftChild; // temp hold pointer to left-child
 			}
 			int rightChild = rightChild(root);
-			if ((rightChild <= end) && (a[temp] < a[rightChild])) {
-				temp = rightChild;
+			if ((rightChild <= end) && (a[temp] < a[rightChild])) { // right-child is greater so far
+				temp = rightChild; // temp hold pointer to right-child
 			}
 			if (temp == root) {
 				return;
 			}
 			else {
-				swap(root, temp);
+				swap(root, temp); // swap root with greater element
 				root = temp;
 			}
 		}
 	}
 	
 	private void swap(int first, int second) {
-		//System.out.println("Swapping " + first + " and " + second);
+		System.out.println("Swapping " + first + " and " + second);
 		int temp = a[first];
 		a[first] = a[second];
 		a[second] = temp;
