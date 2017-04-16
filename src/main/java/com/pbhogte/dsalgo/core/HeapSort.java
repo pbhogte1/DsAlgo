@@ -81,9 +81,4 @@ public class HeapSort {
 		return 2*i + 2;
 	}
 	
-	public static void main(String[] args) {
-		HeapSort heapSort = new HeapSort();
-		heapSort.sort(new int[] {5, 10, 12, 30, 99, 34, 47, 89, 60});
-		
-	}
 }
